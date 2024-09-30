@@ -17,7 +17,6 @@ const login = async (username, password) => {
   }
 };
 
-// هنا نعين الكائن إلى متغير قبل تصديره
 const authService = {
   login,
 };

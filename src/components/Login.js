@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import authService from '../services/authService';
 import { useNavigate } from 'react-router-dom';
-import { setToken, getToken } from '../services/auth';
-import { FaUser, FaLock } from 'react-icons/fa'; 
+import { setToken, getToken,getAdminToken,getAdminClinicId, setAdminTokenAndClinicId } from '../services/auth';
+import { FaUser, FaLock } from 'react-icons/fa';
 
 function Login({ setIsAuthenticated }) {
   const [username, setUsername] = useState('');
@@ -14,22 +14,28 @@ function Login({ setIsAuthenticated }) {
     e.preventDefault();
     try {
       const data = await authService.login(username, password);
-      setToken(data.data.token);
-      var Token1 = getToken();
-      console.log(Token1);
-  
-      setIsAuthenticated(true);
-  
       const userRole = data.data.role.name;
-  
+      const token = data.data.token;
+      const clinicId = data.data.details.clinic_id;
+
+      setIsAuthenticated(true);
+
       if (userRole === 'admins') {
+        setAdminTokenAndClinicId(token, clinicId); 
+        var id = getAdminClinicId(clinicId);
+        var id2= getAdminToken(token);
+        console.log(id);
+        console.log(id2);
         navigate('/adminDashboard');  
       } else if (userRole === 'super_admins') {
-        navigate('/dashboard');  
+        setToken(token);  
+        var id3 = getToken(token);
+        console.log(id3);
+        navigate('/dashboard'); 
       } else {
         setError("Role not recognized");  
       }
-  
+
     } catch (err) {
       setError(err.message);
     }
@@ -37,7 +43,7 @@ function Login({ setIsAuthenticated }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center">
-      <div className="bg-white bg-opacity-30 backdrop-blur-md p-8 rounded-lg shadow-xl max-w-lg w-full transition-all ">
+      <div className="bg-white bg-opacity-30 backdrop-blur-md p-8 rounded-lg shadow-xl max-w-lg w-full transition-all">
         <h2 className="text-4xl text-white font-bold text-center mb-6 tracking-wider">Welcome Back!</h2>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { removeToken } from '../services/auth';
+import { removeAdminTokenAndClinicId } from '../services/auth';
 import {FaUsers, FaSignOutAlt } from 'react-icons/fa'; 
 
 function Dashboard({ setIsAuthenticated }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    removeToken();
+    removeAdminTokenAndClinicId();
     setIsAuthenticated(false);
     navigate('/');
   };
