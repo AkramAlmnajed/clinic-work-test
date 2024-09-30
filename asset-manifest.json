@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/clinic-work-test/static/css/main.c3ef1949.css",
+    "main.js": "/clinic-work-test/static/js/main.ba68c75d.js",
+    "index.html": "/clinic-work-test/index.html",
+    "main.c3ef1949.css.map": "/clinic-work-test/static/css/main.c3ef1949.css.map",
+    "main.ba68c75d.js.map": "/clinic-work-test/static/js/main.ba68c75d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3ef1949.css",
+    "static/js/main.ba68c75d.js"
+  ]
+}
