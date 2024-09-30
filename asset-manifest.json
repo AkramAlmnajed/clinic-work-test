@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/clinic-work-test/static/css/main.c3ef1949.css",
-    "main.js": "/clinic-work-test/static/js/main.ba68c75d.js",
+    "main.js": "/clinic-work-test/static/js/main.87d3f485.js",
     "index.html": "/clinic-work-test/index.html",
     "main.c3ef1949.css.map": "/clinic-work-test/static/css/main.c3ef1949.css.map",
-    "main.ba68c75d.js.map": "/clinic-work-test/static/js/main.ba68c75d.js.map"
+    "main.87d3f485.js.map": "/clinic-work-test/static/js/main.87d3f485.js.map"
   },
   "entrypoints": [
     "static/css/main.c3ef1949.css",
-    "static/js/main.ba68c75d.js"
+    "static/js/main.87d3f485.js"
   ]
 }
